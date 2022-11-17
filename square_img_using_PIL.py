@@ -1,11 +1,8 @@
 from PIL import Image
 from colorthief import ColorThief
-from img_processing_methods.method_padding import expand2square, transparentToSquare
-from img_processing_methods.is_transparent import has_transparency
-from img_processing_methods.resize_ar import resize_method
-from img_processing_methods.get_bg import get_bg_color
-
-
+from img_processing_methods.transparent_ops import has_transparency,transparent_to_square
+from img_processing_methods.common_ops import resize_method
+from img_processing_methods.opaque_ops import get_bg_color,expand_to_square
 
 def squareify(img_path,filename):
     img = Image.open(img_path)
@@ -23,24 +20,22 @@ def squareify(img_path,filename):
         dominant_color = color_thief.get_color(quality=10)
         if dominant_color >(150,150,150):
             img=img.convert('RGBA')
-            im_new = transparentToSquare(img,(0,0,0))
+            im_new = transparent_to_square(img,(0,0,0))
             im_new.save('assets/'+filename+'_square.webp',quality=95)
 
         else:
             img=img.convert('RGBA')
-            im_new =transparentToSquare(img,(255,255,255))
+            im_new =transparent_to_square(img,(255,255,255))
             im_new.save('assets/'+filename+'_square.webp', quality=95)
 
     else:
         if img.mode != 'RGB':
             img=img.convert('RGB')
         bg_color = get_bg_color(img)
-        im_new = expand2square(img, bg_color)
+        im_new = expand_to_square(img, bg_color)
         newsize = (400, 400)
         im_new = im_new.resize(newsize)
         im_new.save('assets/'+filename+'_square.webp', quality=95)
       
-
-squareify('assets/tc29.jpg','tc27.jpg')
 
 

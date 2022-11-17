@@ -1,5 +1,6 @@
 from PIL import Image
-def resize_method(img):
+
+def resize_method(img): #resizes the image by maintaing the aspect ratio
     width,height=img.size
 
     if width == height:
@@ -20,3 +21,7 @@ def resize_method(img):
 
 
 
+                      
+           
+           
+           
