@@ -1,8 +1,8 @@
 from PIL import Image
 from colorthief import ColorThief
-from img_processing_methods.transparent_ops import has_transparency,transparent_to_square
-from img_processing_methods.common_ops import resize_method
-from img_processing_methods.opaque_ops import get_bg_color,expand_to_square
+from square_image.img_processing_methods.transparent_ops import has_transparency,transparent_to_square
+from square_image.img_processing_methods.common_ops import resize_method
+from square_image.img_processing_methods.opaque_ops import get_bg_color,expand_to_square
 
 def squareify(img_path,target_size, out_path,filename):
     target_size = target_size if target_size is not None else 200 

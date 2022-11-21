@@ -19,7 +19,6 @@ def resize_method(img, target_size): #resizes the image by maintaing the aspect 
 
 
 
-
                       
            
            

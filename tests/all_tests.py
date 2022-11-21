@@ -1,16 +1,20 @@
-from square_img_using_PIL import squareify
+from square_image.square_img_using_PIL import squareify
 import os
 
 def run_all_tests(): # checks for transparency in an image
-    directory = os.fsencode(os.path.join(os.path.dirname(__file__), 'assets'))
+
+    directory = os.fsencode(os.path.join(os.path.dirname(__file__), '/Users/seshivitakula/Documents/gvfiles/my_package/tests/test_assets/'))
+  
     out_path = os.path.join(os.path.dirname(__file__), 'test_output')
+    print(out_path)
+ 
     print(directory)
     
     for file in os.listdir(directory):
         filename = os.fsdecode(file)
         if not filename.startswith('.') and (os.path.isdir(filename) is False):
             print("Testing ",filename)
-            squareify("assets/"+filename,200, out_path, os.path.splitext(filename)[0])
+            squareify("/Users/seshivitakula/Documents/gvfiles/my_package/tests/test_assets/"+filename,400, out_path, os.path.splitext(filename)[0])
 
 def main():
     print("Running all tests")

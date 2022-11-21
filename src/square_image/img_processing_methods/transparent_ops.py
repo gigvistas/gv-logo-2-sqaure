@@ -3,6 +3,8 @@ from PIL import Image
 
 def has_transparency(im): # checks for transparency in an image
     if im.mode == "P":
+        if im.info.get("transparency", None) is not None:
+          return True
         transparent = im.info.get("transparency", -1)
         for _, index in im.getcolors():
             if index == transparent:
