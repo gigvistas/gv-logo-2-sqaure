@@ -2,7 +2,7 @@ from PIL import Image
 from logo_to_square.img_processing_methods.transparent_ops import has_transparency,transparent_to_square
 from logo_to_square.img_processing_methods.common_ops import resize_method
 from logo_to_square.img_processing_methods.opaque_ops import get_bg_color,expand_to_square
-from logo_to_square.img_processing_methods.get_dominant_color import ColorThief
+from logo_to_square.img_processing_methods.getdominantcolor import ColorThief
 
 
 def squareify(img_path,target_size, out_path,filename):
