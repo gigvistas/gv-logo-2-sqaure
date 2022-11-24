@@ -1,8 +1,9 @@
 from PIL import Image
-from colorthief import ColorThief
-from square_image.img_processing_methods.transparent_ops import has_transparency,transparent_to_square
-from square_image.img_processing_methods.common_ops import resize_method
-from square_image.img_processing_methods.opaque_ops import get_bg_color,expand_to_square
+from logo_to_square.img_processing_methods.transparent_ops import has_transparency,transparent_to_square
+from logo_to_square.img_processing_methods.common_ops import resize_method
+from logo_to_square.img_processing_methods.opaque_ops import get_bg_color,expand_to_square
+from logo_to_square.img_processing_methods.get_dominant_color import ColorThief
+
 
 def squareify(img_path,target_size, out_path,filename):
     target_size = target_size if target_size is not None else 200 
@@ -16,7 +17,7 @@ def squareify(img_path,target_size, out_path,filename):
         # param quality: quality settings 1 to 10 
         # 1 is the highest quality, the biggerthe number, 
         # the faster a color will be returned but the greater 
-        # the likelihood that it will not be accurate
+        # the likelihood that it will not be accuratex
 
         dominant_color = color_thief.get_color(quality=10)
         if dominant_color >(150,150,150):
